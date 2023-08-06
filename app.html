@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Workout App</title>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  .container {
+    width: 393px;
+    height: 852px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #111;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  h1 {
+    text-align: center;
+    padding: 10px 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid white;
+  }
+  th {
+    background-color: #222;
+  }
+  td:first-child,
+  td:nth-child(2),
+  td:nth-child(3),
+  td:nth-child(4),
+  td:nth-child(5) {
+    width: 20%;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: #333;
+    color: white;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Workout Tracker</h1>
+  <table id="workoutTable">
+    <tr>
+      <th>Machine Name</th>
+      <th>Weights</th>
+      <th>Sets</th>
+      <th>Repetition</th>
+      <th>PR</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="machineName[]" /></td>
+      <td><input type="text" name="weights[]" /></td>
+      <td><input type="text" name="sets[]" /></td>
+      <td><input type="text" name="repetition[]" /></td>
+      <td><input type="text" name="pr[]" /></td>
+    </tr>
+  </table>
+  <button id="addRow">Add Row</button>
+</div>
+
+<script>
+document.getElementById('addRow').addEventListener('click', function() {
+  var table = document.getElementById('workoutTable');
+  var newRow = table.insertRow(table.rows.length);
+  var machineNameCell = newRow.insertCell(0);
+  var weightsCell = newRow.insertCell(1);
+  var setsCell = newRow.insertCell(2);
+  var repetitionCell = newRow.insertCell(3);
+  var prCell = newRow.insertCell(4);
+  
+  machineNameCell.innerHTML = '<input type="text" name="machineName[]" />';
+  weightsCell.innerHTML = '<input type="text" name="weights[]" />';
+  setsCell.innerHTML = '<input type="text" name="sets[]" />';
+  repetitionCell.innerHTML = '<input type="text" name="repetition[]" />';
+  prCell.innerHTML = '<input type="text" name="pr[]" />';
+});
+</script>
+</body>
+</html>
